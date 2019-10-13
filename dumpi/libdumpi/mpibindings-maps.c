@@ -410,7 +410,7 @@ dumpi_datatype libdumpi_get_iorequest(MPIO_Request mrequest) {
 /**
  * Create the bindings for a hash map of MPI_Request objects.
  */
-DUMPI_DECLARE_HASHMAP(request, MPI_Request, dumpi_request)
+DUMPI_DECLARE_HASHMAP(request, MPI_Requestp, dumpi_request)
 
 /**
  * Create the handle for a shared map of MPI_Request objects.
@@ -424,7 +424,7 @@ void libdumpi_init_request_map(void) {
   if(request_map == NULL) {
     dumpi_hm_request_init(&request_map, DUMPI_FIRST_USER_REQUEST);
 #ifdef DUMPI_HAVE_MPI_REQUEST_NULL
-    dumpi_hm_request_set(request_map, MPI_REQUEST_NULL, DUMPI_REQUEST_NULL);
+    dumpi_hm_request_set(request_map, NULL, DUMPI_REQUEST_NULL);
 #endif
   }
 }
@@ -432,7 +432,7 @@ void libdumpi_init_request_map(void) {
 /*
  * Get a dumpi request index corresponding to the given MPI_Request.
  */
-dumpi_datatype libdumpi_get_request(MPI_Request mrequest) {
+dumpi_datatype libdumpi_get_request(MPI_Requestp mrequest) {
   libdumpi_init_request_map();
   return dumpi_hm_request_get(request_map, mrequest);
 }

@@ -118,7 +118,7 @@ extern "C" {
   /**
    * Get a dumpi request index corresponding to the given MPI_Request.
    */
-  dumpi_datatype libdumpi_get_request(MPI_Request mrequest);
+  dumpi_datatype libdumpi_get_request(MPI_Requestp mrequest);
   
   /**
    * Get a dumpi keyval index corresponding to the given MPI key (integer).

@@ -49,6 +49,7 @@ Questions? Contact sst-macro-help@sandia.gov
 #include <dumpi/common/perfctrtags.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <mpi.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -126,6 +127,7 @@ extern "C" {
   typedef int32_t dumpi_request;
   /** A reasonably compact type handle for an MPIO request */
   typedef int32_t dumpio_request;
+  typedef MPI_Request* MPI_Requestp;
 
   /**
    * Reasonably compact status information (16 bytes is not exactly compact,

@@ -745,7 +745,7 @@ extern "C" {
 
   /** Get the dumpi request handle corresponding to an MPI_Request. */
 #define DUMPI_REQUEST_FROM_MPI_REQUEST(A, B)          \
-  A = libdumpi_get_request(B)
+  A = libdumpi_get_request(&B)
 
   /** Get the dumpi request handles corresponding to an array of MPI_Requests */
 #define DUMPI_REQUEST_FROM_MPI_REQUEST_ARRAY_1(COUNT, A, B) do {      \
